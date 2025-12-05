@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NoteDiffView } from './NoteDiffView';
 
-const sampleBase = `Patient presents with mild cough and low-grade fever. Denies chest pain. Recommend rest and hydration. Follow-up in 1 week. Plan for CBC and chest X-ray.`;
+const sampleBase = `Patient presents with mild cough and low-grade fever. Denies chest pain. Recommend rest and hydration. COVID-19 test returned negative. Follow-up in 3 days if symptoms persist.`;
 
 const sampleDiffs = [
   {
@@ -9,9 +9,9 @@ const sampleDiffs = [
     type: 'add',
     granularity: 'sentence',
     oldText: '',
-    newText: ' COVID-19 test returned negative.',
-    startIndex: 82,
-    endIndex: 82,
+    newText: 'COVID-19 test returned negative.',
+    startIndex: 103,
+    endIndex: 135,
   },
   {
     id: 'd2',
@@ -19,8 +19,8 @@ const sampleDiffs = [
     granularity: 'phrase',
     oldText: 'Chest pain worsened with exertion.',
     newText: '',
-    startIndex: 33,
-    endIndex: 66,
+    startIndex: 72,
+    endIndex: 72,
   },
   {
     id: 'd3',
@@ -28,8 +28,8 @@ const sampleDiffs = [
     granularity: 'phrase',
     oldText: 'Follow-up in 1 week.',
     newText: 'Follow-up in 3 days if symptoms persist.',
-    startIndex: 151,
-    endIndex: 171,
+    startIndex: 136,
+    endIndex: 176,
   },
   {
     id: 'd4',
@@ -37,8 +37,8 @@ const sampleDiffs = [
     granularity: 'sentence',
     oldText: 'Plan for CBC and chest X-ray.',
     newText: '',
-    startIndex: 172,
-    endIndex: 202,
+    startIndex: 176,
+    endIndex: 176,
   },
 ];
 
