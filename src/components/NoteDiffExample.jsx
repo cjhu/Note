@@ -1,44 +1,35 @@
 import React, { useState } from 'react';
 import { NoteDiffView } from './NoteDiffView';
 
-const sampleBase = `Patient presents with mild cough and low-grade fever. Denies chest pain. Recommend rest and hydration. COVID-19 test returned negative. Follow-up in 3 days if symptoms persist.`;
+const sampleBase = `Bradley Grant Morrison is a 88 y.o. male who presents for one-month follow-up after TAVR by Dr. Balmer 5/30/2025 with balloon valvuloplasty and 26 mm Edwards Ultra valve. Pre-TAVR catheterization demonstrated nonobstructive CAD. Limited echo prior to discharge demonstrated EF > 70%, appropriately functioning bioprosthetic valve with MG 12.5mmHg, DVI 0.55. Other pertinent medical history includes HTN, HLD, PAF, HFimpEF, asthma, Barrett's esophagus. He was seen in general cardiology clinic 6/23 with complaints of dizziness at which time a Holter monitor was applied, EKG stable from prior with RBBB and HR 59bpm. Per chart review his PCP prescribed Meclizine which has helped with the dizziness. Today, Bradley is feeling same as last visit with Anthony. On a daily basis, his physical activity includes irrigating on his farm every morning. With this he is \"careful, slow.\" He has been dizzy essentially throughout his recovery from major illnesses starting last Fall. He does not feel particularly more dizzy than pre-TAVR. Possibly \"stronger\" dizziness, but not more often. Symptoms happen once or twice daily, only one time has been severe enough to fall down. No syncope. The dizziness seems to be about the same as it was at time of discharge. He will undergo vestibular PT evaluation next month. Seems to happen from major position changes, feels like eyes may cause some of it, like looking around too quickly, maybe his ears as well. Nasal spray has been helpful too. Bradley denies exertional chest pain or pressure, dyspnea on exertion, or worsening activity tolerance. NYHA Class: Class I - No limitation in normal physical activity. He denies orthopnea, paroxysmal nocturnal dyspnea, or new or worsening swelling of the extremities or abdomen. He denies concerning signs or symptoms related to afib. Bradley further denies syncope or bleeding issues including blood in the urine or stool.`;
 
 const sampleDiffs = [
   {
-    id: 'd2',
-    type: 'delete',
+    id: 'd1',
+    type: 'replace',
     granularity: 'phrase',
-    oldText: 'Chest pain worsened with exertion.',
-    newText: '',
-    startIndex: 72,
-    endIndex: 72,
+    oldText: 'has not helped with the dizziness.',
+    newText: 'has helped with the dizziness.',
+    startIndex: 669,
+    endIndex: 699,
   },
   {
-    id: 'd1',
+    id: 'd2',
     type: 'add',
     granularity: 'sentence',
     oldText: '',
-    newText: 'COVID-19 test returned negative.',
-    startIndex: 103,
-    endIndex: 135,
+    newText: 'He will undergo vestibular PT evaluation next month.',
+    startIndex: 1254,
+    endIndex: 1306,
   },
   {
     id: 'd3',
-    type: 'replace',
-    granularity: 'phrase',
-    oldText: 'Follow-up in 1 week.',
-    newText: 'Follow-up in 3 days if symptoms persist.',
-    startIndex: 136,
-    endIndex: 176,
-  },
-  {
-    id: 'd4',
     type: 'delete',
-    granularity: 'sentence',
-    oldText: 'Plan for CBC and chest X-ray.',
+    granularity: 'phrase',
+    oldText: 'He reported morning nausea.',
     newText: '',
-    startIndex: 176,
-    endIndex: 176,
+    startIndex: 1480,
+    endIndex: 1480,
   },
 ];
 
