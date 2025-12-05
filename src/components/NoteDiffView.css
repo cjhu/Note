@@ -1,0 +1,61 @@
+.note-diff-view {
+  white-space: pre-wrap;
+  line-height: 1.6;
+  position: relative;
+  color: #0f172a;
+}
+
+.diff-marker {
+  display: inline;
+  position: relative;
+  cursor: pointer;
+}
+
+.diff-add {
+  border-bottom: 1px dashed #6ba6ff;
+  cursor: pointer;
+}
+
+.diff-replace {
+  border-bottom: 1px dashed #6ba6ff;
+  cursor: pointer;
+}
+
+.diff-delete-placeholder {
+  width: 2px;
+  height: 1em;
+  background: #d0d0d0;
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: middle;
+  border-radius: 1px;
+}
+
+.diff-tooltip {
+  position: absolute;
+  z-index: 9999;
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #dadada;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  max-width: 320px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  pointer-events: auto;
+}
+
+.diff-tooltip-title {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.diff-tooltip-body {
+  color: #0f172a;
+}
+
+.diff-tooltip-row + .diff-tooltip-row {
+  margin-top: 4px;
+}
+
