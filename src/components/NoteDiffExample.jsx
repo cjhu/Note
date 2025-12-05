@@ -5,6 +5,15 @@ const sampleBase = `Bradley Grant Morrison is a 88 y.o. male who presents for on
 
 const sampleDiffs = [
   {
+    id: 'd3',
+    type: 'delete',
+    granularity: 'sentence',
+    oldText: 'Trace aortic regurgitation noted.',
+    newText: '',
+    startIndex: 358,
+    endIndex: 358,
+  },
+  {
     id: 'd1',
     type: 'replace',
     granularity: 'phrase',
@@ -12,6 +21,15 @@ const sampleDiffs = [
     newText: 'has helped with the dizziness.',
     startIndex: 669,
     endIndex: 699,
+  },
+  {
+    id: 'd5',
+    type: 'delete',
+    granularity: 'phrase',
+    oldText: 'Reports occasional presyncope with exertion.',
+    newText: '',
+    startIndex: 973,
+    endIndex: 973,
   },
   {
     id: 'd2',
@@ -23,13 +41,22 @@ const sampleDiffs = [
     endIndex: 1306,
   },
   {
-    id: 'd3',
+    id: 'd4',
     type: 'delete',
     granularity: 'phrase',
     oldText: 'He reported morning nausea.',
     newText: '',
     startIndex: 1480,
     endIndex: 1480,
+  },
+  {
+    id: 'd6',
+    type: 'delete',
+    granularity: 'phrase',
+    oldText: 'Mild ankle swelling last month.',
+    newText: '',
+    startIndex: 1650,
+    endIndex: 1650,
   },
 ];
 

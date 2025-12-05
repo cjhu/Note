@@ -12,17 +12,23 @@
 }
 
 .diff-add {
-  border-bottom: 1px dashed #6ba6ff;
+  background: #f1f5f9;
+  box-shadow: inset 0 0 0 1px #e2e8f0;
+  border-radius: 4px;
+  padding: 0 2px;
   cursor: pointer;
 }
 
 .diff-replace {
-  border-bottom: 1px dashed #6ba6ff;
+  background: #f1f5f9;
+  box-shadow: inset 0 0 0 1px #e2e8f0;
+  border-radius: 4px;
+  padding: 0 2px;
   cursor: pointer;
 }
 
 .diff-delete-placeholder {
-  width: 3px;
+  width: 6px;
   height: 1em;
   background: #f59e0b;
   box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.3);
