@@ -5,15 +5,6 @@ const sampleBase = `Patient presents with mild cough and low-grade fever. Denies
 
 const sampleDiffs = [
   {
-    id: 'd1',
-    type: 'add',
-    granularity: 'sentence',
-    oldText: '',
-    newText: 'COVID-19 test returned negative.',
-    startIndex: 103,
-    endIndex: 135,
-  },
-  {
     id: 'd2',
     type: 'delete',
     granularity: 'phrase',
@@ -21,6 +12,15 @@ const sampleDiffs = [
     newText: '',
     startIndex: 72,
     endIndex: 72,
+  },
+  {
+    id: 'd1',
+    type: 'add',
+    granularity: 'sentence',
+    oldText: '',
+    newText: 'COVID-19 test returned negative.',
+    startIndex: 103,
+    endIndex: 135,
   },
   {
     id: 'd3',

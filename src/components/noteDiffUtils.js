@@ -3,10 +3,12 @@
  * baseText is the latest note text; diffs are sorted and non-overlapping.
  */
 export function computeNoteSegments(baseText, diffs = []) {
+  // Ensure diffs are processed in order to avoid overlapping/duplicate rendering
+  const orderedDiffs = [...diffs].sort((a, b) => (a.startIndex ?? 0) - (b.startIndex ?? 0));
   const segments = [];
   let cursor = 0;
 
-  diffs.forEach((diff) => {
+  orderedDiffs.forEach((diff) => {
     const { startIndex, endIndex, newText } = diff;
 
     // Push unchanged text before the diff
