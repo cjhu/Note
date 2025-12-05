@@ -24,13 +24,13 @@ jobs:
           node-version: 20
           cache: npm
       - name: Install dependencies
-        run: cd note-diff-prototype && npm ci
+        run: npm install
       - name: Build
-        run: cd note-diff-prototype && npm run build
+        run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: note-diff-prototype/dist
+          path: dist
 
   deploy:
     needs: build
