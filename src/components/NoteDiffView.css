@@ -87,10 +87,46 @@
   transition: background-color 120ms ease;
 }
 
+.side-diff-span-wrapper {
+  position: relative;
+}
+
 .side-diff-span-active {
   background: #fef3c7;
   box-shadow: inset 0 0 0 1px #fcd34d;
   border-radius: 4px;
+}
+
+.inline-anchor {
+  position: absolute;
+  left: -12px;
+  top: 0.3em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #94a3b8;
+  box-shadow: 0 0 0 2px #f8fafc;
+}
+
+.inline-anchor.side-marker-add {
+  background: #3b82f6;
+}
+.inline-anchor.side-marker-replace {
+  background: #10b981;
+}
+.inline-anchor.side-marker-delete {
+  background: #f59e0b;
+}
+
+.side-diff-ghost-delete {
+  display: inline;
+  margin-left: 4px;
+  padding: 0 4px;
+  background: #fff7ed;
+  color: #9a3412;
+  border: 1px dashed #f59e0b;
+  border-radius: 4px;
+  font-style: italic;
 }
 
 .note-diff-side-gutter {

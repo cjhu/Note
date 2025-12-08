@@ -9,8 +9,8 @@ const TYPE_META = {
 };
 
 /**
- * Side-marker variant: shows latest text; markers sit in a gutter.
- * Hover/focus marker -> highlight text span and show tooltip near marker.
+ * Side-marker variant: shows latest text; markers sit in a gutter and inline anchors.
+ * Hover/focus marker -> highlight text span and show tooltip; deletions surface inline ghost text.
  */
 export function NoteDiffSideView({ baseText, diffs = [] }) {
   const [activeId, setActiveId] = useState(null);
@@ -28,12 +28,25 @@ export function NoteDiffSideView({ baseText, diffs = [] }) {
             return <React.Fragment key={`text-${idx}`}>{seg.text}</React.Fragment>;
           }
           const isActive = seg.diff.id === activeId;
+          const meta = TYPE_META[seg.diff.type] || TYPE_META.replace;
+          const showGhost = isActive && seg.diff.type === 'delete';
           return (
             <span
               key={seg.diff.id}
-              className={`side-diff-span ${isActive ? 'side-diff-span-active' : ''}`}
+              className="side-diff-span-wrapper"
             >
-              {seg.text}
+              <span
+                className={`inline-anchor ${meta.className}`}
+                aria-hidden="true"
+              />
+              <span
+                className={`side-diff-span ${isActive ? 'side-diff-span-active' : ''}`}
+              >
+                {seg.text}
+                {showGhost && (
+                  <span className="side-diff-ghost-delete">{seg.diff.oldText}</span>
+                )}
+              </span>
             </span>
           );
         })}
