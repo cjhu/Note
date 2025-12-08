@@ -36,6 +36,13 @@ main {
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 }
 
+.prepare-main {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
 .note-example-card {
   border: 1px solid #e2e8f0;
   border-radius: 12px;
@@ -95,5 +102,27 @@ main {
   border: 1px solid #e2e8f0;
   border-radius: 10px;
   padding: 0.85rem;
+}
+
+.prepare-header {
+  margin-bottom: 1rem;
+}
+
+.app-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.updated-pill {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-weight: 700;
+  color: #475569;
+  font-size: 0.9rem;
 }
 
