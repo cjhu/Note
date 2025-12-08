@@ -66,3 +66,93 @@
   margin-top: 4px;
 }
 
+/* Side marker variant */
+.note-diff-side-layout {
+  display: grid;
+  grid-template-columns: 1fr 140px;
+  gap: 16px;
+  align-items: start;
+}
+
+.note-diff-side-text {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px;
+  min-height: 120px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.side-diff-span {
+  transition: background-color 120ms ease;
+}
+
+.side-diff-span-active {
+  background: #fef3c7;
+  box-shadow: inset 0 0 0 1px #fcd34d;
+  border-radius: 4px;
+}
+
+.note-diff-side-gutter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: sticky;
+  top: 12px;
+}
+
+.side-marker {
+  position: relative;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  outline: none;
+}
+
+.side-marker:hover,
+.side-marker:focus {
+  box-shadow: 0 0 0 2px #bfdbfe;
+}
+
+.side-marker-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #64748b;
+}
+
+.side-marker-add .side-marker-dot {
+  background: #3b82f6;
+}
+
+.side-marker-replace .side-marker-dot {
+  background: #10b981;
+}
+
+.side-marker-delete .side-marker-dot {
+  background: #f59e0b;
+}
+
+.side-marker-tooltip {
+  position: absolute;
+  left: -12px;
+  top: -6px;
+  transform: translateX(-100%);
+  background: #ffffff;
+  border: 1px solid #dadada;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 8px 10px;
+  min-width: 220px;
+  z-index: 10;
+}
+
+.side-marker-active {
+  box-shadow: 0 0 0 2px #bfdbfe;
+}
+

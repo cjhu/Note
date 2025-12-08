@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NoteDiffView } from './NoteDiffView';
+import { NoteDiffSideView } from './NoteDiffSideView';
 
 const sampleBase = `Bradley Grant Morrison is a 88 y.o. male who presents for one-month follow-up after TAVR by Dr. Balmer 5/30/2025 with balloon valvuloplasty and 26 mm Edwards Ultra valve. Pre-TAVR catheterization demonstrated nonobstructive CAD. Limited echo prior to discharge demonstrated EF > 70%, appropriately functioning bioprosthetic valve with MG 12.5mmHg, DVI 0.55. Other pertinent medical history includes HTN, HLD, PAF, HFimpEF, asthma, Barrett's esophagus. He was seen in general cardiology clinic 6/23 with complaints of dizziness at which time a Holter monitor was applied, EKG stable from prior with RBBB and HR 59bpm. Per chart review his PCP prescribed Meclizine which has helped with the dizziness. Today, Bradley is feeling same as last visit with Anthony. On a daily basis, his physical activity includes irrigating on his farm every morning. With this he is \"careful, slow.\" He has been dizzy essentially throughout his recovery from major illnesses starting last Fall. He does not feel particularly more dizzy than pre-TAVR. Possibly \"stronger\" dizziness, but not more often. Symptoms happen once or twice daily, only one time has been severe enough to fall down. No syncope. The dizziness seems to be about the same as it was at time of discharge. He will undergo vestibular PT evaluation next month. Seems to happen from major position changes, feels like eyes may cause some of it, like looking around too quickly, maybe his ears as well. Nasal spray has been helpful too. Bradley denies exertional chest pain or pressure, dyspnea on exertion, or worsening activity tolerance. NYHA Class: Class I - No limitation in normal physical activity. He denies orthopnea, paroxysmal nocturnal dyspnea, or new or worsening swelling of the extremities or abdomen. He denies concerning signs or symptoms related to afib. Bradley further denies syncope or bleeding issues including blood in the urine or stool.`;
 
@@ -62,10 +63,28 @@ const sampleDiffs = [
 
 export function NoteDiffExample() {
   const [showDiff, setShowDiff] = useState(true);
+  const [variant, setVariant] = useState('inline'); // inline | side
 
   return (
     <div className="note-example-card">
-      <div className="note-example-header">
+      <div className="note-example-header note-example-toolbar">
+        <div className="variant-toggle">
+          <button
+            type="button"
+            className={variant === 'inline' ? 'variant-btn active' : 'variant-btn'}
+            onClick={() => setVariant('inline')}
+          >
+            Version 1: Inline markers
+          </button>
+          <button
+            type="button"
+            className={variant === 'side' ? 'variant-btn active' : 'variant-btn'}
+            onClick={() => setVariant('side')}
+          >
+            Version 2: Side markers
+          </button>
+        </div>
+
         <label className="toggle-row" htmlFor="toggle-diff">
           <input
             id="toggle-diff"
@@ -78,7 +97,11 @@ export function NoteDiffExample() {
       </div>
 
       <div className="note-example-body">
-        <NoteDiffView baseText={sampleBase} diffs={sampleDiffs} showDiff={showDiff} />
+        {variant === 'inline' ? (
+          <NoteDiffView baseText={sampleBase} diffs={sampleDiffs} showDiff={showDiff} />
+        ) : (
+          <NoteDiffSideView baseText={sampleBase} diffs={showDiff ? sampleDiffs : []} />
+        )}
       </div>
     </div>
   );

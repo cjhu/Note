@@ -46,7 +46,9 @@ main {
 .note-example-header {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 0.5rem;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .toggle-row {
@@ -59,6 +61,33 @@ main {
 
 .toggle-row input {
   transform: scale(1.1);
+}
+
+.note-example-toolbar {
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.variant-toggle {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.variant-btn {
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  padding: 0.4rem 0.65rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.variant-btn.active {
+  background: #e0ecff;
+  border-color: #bfdbfe;
+  box-shadow: 0 0 0 2px #bfdbfe;
 }
 
 .note-example-body {
