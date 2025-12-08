@@ -22,3 +22,4 @@ Then open the URL printed by Vite (default http://localhost:5173).
 
 `NoteDiffExample` wires in sample data and a "Show changes" toggle.
 
+# Recap
