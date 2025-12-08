@@ -9,16 +9,22 @@ const TYPE_META = {
 };
 
 /**
- * Side-marker variant: shows latest text; markers sit in a gutter and inline anchors.
- * Hover/focus marker -> highlight text span and show tooltip; deletions surface inline ghost text.
+ * Side-marker variant: shows latest text; markers are positioned in a gutter near their edit.
+ * Hover/focus marker -> highlight span and (for deletions) show inline ghost text; otherwise latest text stays clean.
  */
 export function NoteDiffSideView({ baseText, diffs = [] }) {
   const [activeId, setActiveId] = useState(null);
+  const totalLen = baseText.length || 1;
 
   const segments = useMemo(() => computeNoteSegments(baseText, diffs), [baseText, diffs]);
 
   const handleEnter = (id) => setActiveId(id);
   const handleLeave = () => setActiveId(null);
+
+  const positionedDiffs = diffs.map((d) => ({
+    ...d,
+    top: `${Math.min(98, Math.max(2, (d.startIndex / totalLen) * 100))}%`,
+  }));
 
   return (
     <div className="note-diff-side-layout">
@@ -28,17 +34,12 @@ export function NoteDiffSideView({ baseText, diffs = [] }) {
             return <React.Fragment key={`text-${idx}`}>{seg.text}</React.Fragment>;
           }
           const isActive = seg.diff.id === activeId;
-          const meta = TYPE_META[seg.diff.type] || TYPE_META.replace;
           const showGhost = isActive && seg.diff.type === 'delete';
           return (
             <span
               key={seg.diff.id}
               className="side-diff-span-wrapper"
             >
-              <span
-                className={`inline-anchor ${meta.className}`}
-                aria-hidden="true"
-              />
               <span
                 className={`side-diff-span ${isActive ? 'side-diff-span-active' : ''}`}
               >
@@ -53,15 +54,16 @@ export function NoteDiffSideView({ baseText, diffs = [] }) {
       </div>
 
       <div className="note-diff-side-gutter" aria-label="Change markers">
-        {diffs.map((diff) => {
+        {positionedDiffs.map((diff) => {
           const meta = TYPE_META[diff.type] || TYPE_META.replace;
           const isActive = activeId === diff.id;
           return (
             <div
               key={diff.id}
-              className={`side-marker ${meta.className} ${isActive ? 'side-marker-active' : ''}`}
+              className={`side-marker side-marker-absolute ${meta.className} ${isActive ? 'side-marker-active' : ''}`}
               role="button"
               tabIndex={0}
+              style={{ top: diff.top }}
               onMouseEnter={() => handleEnter(diff.id)}
               onMouseLeave={handleLeave}
               onFocus={() => handleEnter(diff.id)}

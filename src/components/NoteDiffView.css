@@ -130,11 +130,8 @@
 }
 
 .note-diff-side-gutter {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  position: sticky;
-  top: 12px;
+  position: relative;
+  min-height: 120px;
 }
 
 .side-marker {
@@ -148,6 +145,13 @@
   gap: 8px;
   cursor: pointer;
   outline: none;
+}
+
+.side-marker-absolute {
+  position: absolute;
+  left: 0;
+  transform: translateY(-50%);
+  width: max-content;
 }
 
 .side-marker:hover,
